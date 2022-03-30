@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #ava {
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        box-shadow: 2px 3px 20px 7px #33333333;
+        display: block;
+        margin: 3rem;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.5rem;
+        font-size: 1.5rem;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bolder;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <form autocomplete="off" id="form">
+      <input type="text" name="username" id="username" />
+      <button>go</button>
+    </form>
+    <span id="ava"></span>
+    <script src="index.js"></script>
+    <script>
+      const form = document.getElementById("form");
+      const ava = document.getElementById("ava");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const usernameInput = document.getElementById("username");
+        const username = usernameInput.value;
+        const myColour = createColour(username);
+        const initials = getInitials(username);
+        ava.innerText = initials;
+        ava.style.backgroundColor = myColour;
+      });
+    </script>
+  </body>
+</html>

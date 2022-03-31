@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      section{
+        margin: 1rem;
+      }
       #ava {
         height: 50px;
         width: 50px;
         border-radius: 50px;
         box-shadow: 2px 3px 20px 7px #33333333;
         display: block;
-        margin: 3rem;
+        
         color: white;
         display: flex;
         justify-content: center;
@@ -30,11 +33,33 @@
       <input type="text" name="username" id="username" />
       <button>go</button>
     </form>
-    <span id="ava"></span>
+    <section>
+      <h2>Dom element</h2>
+      <span id="ava"></span>
+    </section>
+    <section id="canvas">
+      <h2>Canvas element</h2>
+    </section>
+    <section>
+      <h2>Base64 text</h2>
+      <input type="text" id="out"></input>
+    </section>
+    <section>
+      <h2>Img with Base64 src</h2>
+      <img src="" alt="" id="img" height="50" />
+    </section>
+     
+    
+  
+    <script src="/node_modules/html2canvas/dist/html2canvas.js"></script>
+   
     <script src="index.js"></script>
     <script>
       const form = document.getElementById("form");
       const ava = document.getElementById("ava");
+      const out = document.getElementById("out");
+      const img = document.getElementById("img");
+      const cnv = document.getElementById("canvas");
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         const usernameInput = document.getElementById("username");
@@ -43,6 +68,13 @@
         const initials = getInitials(username);
         ava.innerText = initials;
         ava.style.backgroundColor = myColour;
+
+        html2canvas(document.querySelector("#ava")).then((canvas) => {
+          const x = canvas.toDataURL();
+          out.value = x;
+          img.src = x
+          cnv.appendChild(canvas);
+        });
       });
     </script>
   </body>

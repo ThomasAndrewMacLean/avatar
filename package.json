@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ThomasAndrewMacLean/avatar/issues"
   },
-  "homepage": "https://github.com/ThomasAndrewMacLean/avatar#readme"
+  "homepage": "https://github.com/ThomasAndrewMacLean/avatar#readme",
+  "dependencies": {
+    "html2canvas": "^1.4.1"
+  }
 }

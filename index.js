@@ -1,3 +1,4 @@
+
 //https://dev.to/admitkard/auto-generate-avatar-colors-randomly-138j
 const createColour = (username) => {
   console.log("generation");
